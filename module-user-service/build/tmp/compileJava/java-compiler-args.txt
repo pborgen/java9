@@ -1,0 +1,17 @@
+-source
+1.9
+-target
+1.9
+-d
+E:\\dev\\java9\\module-user-service\\build\\classes\\main
+-g
+-sourcepath
+""
+-proc:none
+-XDuseUnsharedTable=true
+-classpath
+""
+E:\\dev\\java9\\module-user-service\\src\\main\\java\\com.java9demo.userservice\\api\\UserService.java
+E:\\dev\\java9\\module-user-service\\src\\main\\java\\com.java9demo.userservice\\bean\\User.java
+E:\\dev\\java9\\module-user-service\\src\\main\\java\\com.java9demo.userservice\\module-info.java
+E:\\dev\\java9\\module-user-service\\src\\main\\java\\com.java9demo.userservice\\service\\UserServiceImpl.java
