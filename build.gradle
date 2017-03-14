@@ -1,0 +1,22 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.9
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+compileJava {
+  options.fork = true
+  options.forkOptions.executable = "C:/Program Files/Java/jdk-9/bin/javac"
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.4.1' 
+}
+
+dependencies {
+   
+}

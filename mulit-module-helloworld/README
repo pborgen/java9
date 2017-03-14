@@ -1,0 +1,22 @@
+javac -d bin/com.helloworld.person src/com.helloworld.person/module-info.java ^
+        src/com.helloworld.person/com/helloworld/person/Bob.java
+
+
+javac --module-path bin ^
+      -d bin/com.helloworld ^ 
+      src/com.helloworld/module-info.java ^
+      src/com.helloworld/com/helloworld/Main.java
+
+java --module-path bin -m com.helloworld/com.helloworld.Main
+
+
+jar --create --file=mlib/com.helloworld.jar ^
+    --module-version=1.0 ^
+    --main-class=com.helloworld.Main ^
+    -C bin/com.helloworld .
+
+jar --create --file=mlib/com.helloworld.person.jar ^
+    -C bin/com.helloworld.person .
+
+// -p is module path
+java -p mlib -m com.helloworld

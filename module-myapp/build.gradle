@@ -1,8 +1,10 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
 
-sourceCompatibility = 1.8
+sourceCompatibility = 1.9
 version = '1.0'
+//targetPlatform 'java9'
+
 jar {
     manifest {
         attributes 'Implementation-Title': 'module-user-service',
@@ -14,10 +16,21 @@ repositories {
     mavenCentral()
 }
 
+compileJava {
+  options.fork = true
+  options.forkOptions.executable = "C:/Program Files/Java/jdk-9/bin/javac"
+  // the release notes suggested jdk9 tag?
+  options.compilerArgs.addAll(['-release', '9'])
+
+  // and the modulesourcepath
+  options.compilerArgs.addAll(['--module-source-path', modulesourcepath ])
+}
+
 task wrapper(type: Wrapper) {
     gradleVersion = '3.4.1' 
 }
 
 dependencies {
+	compile project(':module-user-service')
     testCompile group: 'junit', name: 'junit', version: '5.+'
 }
